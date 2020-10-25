@@ -12,12 +12,12 @@ import pxutils "github.com/incizzle/perimeterx-utils-go"
 
 Create PC Variable
 ```go
-createPC(jsonstring, tag) // Create PC Variable pass in jsonstring payload and uuid:tag:ftag
+pxutils.CreatePC(jsonstring, tag) // Create PC Variable pass in jsonstring payload and uuid:tag:ftag
 ```
 
 Obfuscate String
 ```go
-obfuscateString(text, factor) // Simple Function to Obfuscate string using a factor
+pxutils.ObfuscateString(text, factor) // Simple Function to Obfuscate string using a factor
 ```
 
 By: iNcizzle#1337
