@@ -20,6 +20,6 @@ Obfuscate String
 pxutils.ObfuscateString(text, factor) // Simple Function to Obfuscate string using a factor
 ```
 
-By: iNcizzle#1337
-Decoder Website: https://px.incizzle.dev/
-Enjoy 💜
+By: iNcizzle#1337  
+Decoder Website: https://px.incizzle.dev/  
+Enjoy 💜  
