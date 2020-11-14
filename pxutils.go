@@ -23,7 +23,7 @@ func h1(n string, t string) string {
 	o := make([]int, 16)
 	i := make([]int, 16)
 	if len(r) > 16 {
-		h3(r, 8*len(t))
+		r = h3(r, 8*len(t))
 	}
 	for e = 0; e < 16; e++ {
 		if e >= len(r) {
