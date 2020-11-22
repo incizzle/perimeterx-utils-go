@@ -4,7 +4,7 @@ import (
 	"strconv"
 )
 
-// Create PC Variable pass in jsonstring payload and uuid:tag:ftag
+// CreatePC Variable pass in jsonstring payload and uuid:tag:ftag
 func CreatePC(jsonstring string, tag string) string {
 	var a = h1(jsonstring, tag)
 	var e = h12(a)
@@ -178,7 +178,7 @@ func h11(t []int) string {
 	var n int
 	var e = ""
 	for n = 0; n < 32*len(t); n += 8 {
-		e += string((int(int32(int(uint32(t[n>>5])) >> (n % 32)))) & 255)
+		e += string(rune(int(int32(int(uint32(t[n>>5]))>>(n%32)))) & 255)
 	}
 	return e
 }
@@ -210,11 +210,12 @@ func h13(t string) string {
 	return n + e
 }
 
-// Simple Function to Obfuscate string using a factor
+// ObfuscateString obfuscates a string using a factor
 func ObfuscateString(text string, amount int) string {
 	var e string = ""
 	for r := 0; r < len(text); r++ {
-		e += string(amount ^ int([]rune(text)[r]))
+		e += string(rune(amount ^ int([]rune(text)[r])))
 	}
 	return e
 }
+
