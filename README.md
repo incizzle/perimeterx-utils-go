@@ -35,6 +35,7 @@ EncodePayload String
 pxutils.EncodePayload(text, factor) // EncodePayload encodes a string using a factor
 ```
 
+Other Encrpyt Functions
 ```go
 pxutils.H1(n, t)
 ```
