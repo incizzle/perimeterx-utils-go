@@ -20,6 +20,30 @@ Obfuscate String
 pxutils.ObfuscateString(text, factor) // Simple Function to Obfuscate string using a factor
 ```
 
+SimpleTextEncode String
+```go
+pxutils.SimpleTextEncode(text, factor) // Simple Function to encode text using a factor
+```
+
+DecodePayload String
+```go
+pxutils.DecodePayload(text, factor) // DecodePayload decodes a payload using a factor
+```
+
+EncodePayload String
+```go
+pxutils.EncodePayload(text, factor) // EncodePayload encodes a string using a factor
+```
+
+```go
+pxutils.H1(n, t)
+```
+
+```go
+pxutils.H12(t)
+```
+
 By: iNcizzle#1337  
+Twitter: https://twitter.com/iNcizzle
 Decoder Website: https://px.incizzle.dev/  
 Enjoy 💜  

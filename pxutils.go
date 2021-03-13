@@ -1,13 +1,14 @@
 package pxutils
 
 import (
+	"encoding/base64"
 	"strconv"
 )
 
 // CreatePC Variable pass in jsonstring payload and uuid:tag:ftag
 func CreatePC(jsonstring string, tag string) string {
-	var a = h1(jsonstring, tag)
-	var e = h12(a)
+	var a = H1(jsonstring, tag)
+	var e = H12(a)
 	var r = h13(e)
 	var pc = ""
 
@@ -17,7 +18,7 @@ func CreatePC(jsonstring string, tag string) string {
 	return pc
 }
 
-func h1(n string, t string) string {
+func H1(n string, t string) string {
 	var e int
 	r := h2(t)
 	o := make([]int, 16)
@@ -183,7 +184,7 @@ func h11(t []int) string {
 	return e
 }
 
-func h12(t string) string {
+func H12(t string) string {
 	var n = "0123456789abcdef"
 	var e = ""
 	var r = 0
@@ -219,3 +220,46 @@ func ObfuscateString(text string, amount int) string {
 	return e
 }
 
+// SimpleEncode Simple Function to encode text using a factor
+func SimpleTextEncode(text string, factor int) string {
+	var e string = ""
+	for r := 0; r < len(text); r++ {
+		e += fromCharCode(charCodeAt(text, r) ^ factor)
+	}
+
+	return e
+}
+
+// EncodePayload encodes a string using a factor
+func EncodePayload(json string, factor int) string {
+	var e string = ""
+	for i := 0; i < len(json); i++ {
+		e += fromCharCode(charCodeAt(json, i) ^ factor)
+	}
+	return base64.StdEncoding.EncodeToString([]byte((e)))
+}
+
+// DecodePayload decodes a payload using a factor
+func DecodePayload(payload string, factor int) string {
+	bytes, _ := base64.StdEncoding.DecodeString(payload)
+	payload = string(bytes)
+	var d string = ""
+	for i := 0; i < len(payload); i++ {
+		d += fromCharCode(charCodeAt(payload, i) ^ factor)
+	}
+	return d
+}
+
+// CharCodeAt https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
+func charCodeAt(str string, n int) int {
+	if len(str) == 0 || len(str) < n {
+		return 0
+	}
+
+	return int([]rune(str)[n])
+}
+
+// FromCharCode https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/FromCharCode
+func fromCharCode(c int) string {
+	return string(rune(c))
+}
